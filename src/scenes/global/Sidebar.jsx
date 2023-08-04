@@ -5,7 +5,7 @@ import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 import { Link } from 'react-router-dom'
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
-
+import BackupTableIcon from '@mui/icons-material/BackupTable';
 const Item = ({ title, to, icon, selected, setSelected }) => {
     return (
         <Link to={to} style={{ textDecoration: "none", color: "white" }}>
@@ -25,7 +25,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
                 }
                 icon={icon}
             >
-                <Typography>{title}</Typography>
+                <Typography sx={{fontSize:'12px'}}>{title}</Typography>
             </MenuItem>
         </Link>
     )
@@ -101,7 +101,7 @@ const SidebarMenu = () => {
                             </Box>
                             <Box textAlign="center">
 
-                                <Typography sx={{ color: "white" }}>
+                                <Typography sx={{ color: "#00a1a1",fontSize:"20px"}}>
                                     Nehal Gamal
                                 </Typography>
                             </Box>
@@ -116,9 +116,9 @@ const SidebarMenu = () => {
                             selected={selected}
                             setSelected={setSelected} />
                         <Item
-                            title="Add Certificate"
-                            to="/"
-                            icon={<BadgeOutlinedIcon />}
+                            title="Project table"
+                            to="/projecttable"
+                            icon={<BackupTableIcon />}
                             selected={selected}
                             setSelected={setSelected} />
                         <Item
