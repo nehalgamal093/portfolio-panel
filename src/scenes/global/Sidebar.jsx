@@ -4,7 +4,7 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 import { Link } from 'react-router-dom'
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 const Item = ({ title, to, icon, selected, setSelected }) => {
     return (
