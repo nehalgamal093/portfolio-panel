@@ -1,14 +1,18 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography,Divider } from "@mui/material";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 import { Link } from 'react-router-dom'
 import LibraryAddOutlinedIcon from '@mui/icons-material/LibraryAddOutlined';
-
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
+import SportsScoreIcon from '@mui/icons-material/SportsScore';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const Item = ({ title, to, icon, selected, setSelected }) => {
     return (
         <Link to={to} style={{ textDecoration: "none", color: "white" }}>
+           
             <MenuItem
                 active={selected === title}
                 style={{
@@ -25,9 +29,15 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
                 }
                 icon={icon}
             >
+          
+
+                <Box display="flex" justifyContent="space-between"> 
                 <Typography sx={{fontSize:'12px'}}>{title}</Typography>
+                <  ArrowForwardIosIcon/>
+                </Box>
             </MenuItem>
         </Link>
+        
     )
 }
 const SidebarMenu = () => {
@@ -87,55 +97,70 @@ const SidebarMenu = () => {
                             </Box>
                         )}
                     </MenuItem>
-                    {/**User */}
-                    {!isCollapsed && (
-                        <Box mb="25px">
-                            <Box display="flex" justifyContent="center">
+                  {  isCollapsed && <Box display="flex" justifyContent="center">
                                 <img
                                     alt="profile-user"
-                                    width="100px"
-                                    height="100px"
-                                    src={`../../assets/user.png`}
+                                    width="50px"
+                                    height="50px"
+                                    src={`../../assets/cat.png`}
 
                                 />
-                            </Box>
-                            <Box textAlign="center">
+                            </Box>}
+                    {/**User */}
+                    {!isCollapsed && (
+                        <Box mb="40px" mt="50px">
+                            <Box display="flex" justifyContent="center" mb="20px">
+                                <img
+                                    alt="profile-user"
+                                    width="70px"
+                                    height="70px"
+                                    src={`../../assets/cat.png`}
 
-                                <Typography sx={{ color: "#00a1a1",fontSize:"20px"}}>
+                                />
+                                <Box ml="20px" mt="15px">
+                                <Typography sx={{ color: "#FFFFFF",fontSize:"15px"}}>
                                     Nehal Gamal
                                 </Typography>
+                                <Typography sx={{ color: "#9a9a9a",fontSize:"12px"}}>
+                                    Front End Developer
+                                </Typography>
+                                </Box>
                             </Box>
+                            <Divider/>
                         </Box>
+                        
                     )}
                     {/**Menu Items */}
+                   
                     <Box paddingLeft={isCollapsed ? undefined : "10px"} mb={isCollapsed ? "150px" : "10px"}>
                         <Item
-                            title="Add Project"
+                            title="Project"
                             to="/"
-                            icon={<LibraryAddOutlinedIcon />}
+                            icon={<FingerprintIcon />}
                             selected={selected}
                             setSelected={setSelected} />
                         <Item
-                            title="Project table"
+                            title="Tables"
                             to="/projecttable"
                             icon={<BackupTableIcon />}
                             selected={selected}
                             setSelected={setSelected} />
+                            <Divider />
                         <Item
-                            title="Add Project"
-                            to="/"
-                            icon={<LibraryAddOutlinedIcon />}
+                            title="Profile"
+                            to="/addprofile"
+                            icon={<ContactEmergencyIcon />}
                             selected={selected}
                             setSelected={setSelected} />
                         <Item
-                            title="Add Project"
-                            to="/"
-                            icon={<LibraryAddOutlinedIcon />}
+                            title="Certificate"
+                            to="/addcertificate"
+                            icon={<SportsScoreIcon />}
                             selected={selected}
                             setSelected={setSelected} />
                         <Item
-                            title="Add Project"
-                            to="/"
+                            title="Card"
+                            to="/card"
                             icon={<LibraryAddOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected} />

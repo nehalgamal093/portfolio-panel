@@ -62,7 +62,7 @@ const AddProject = () => {
     }
 
     return (
-        <Box m="20px">
+        <Box m="20px" sx={{ backgroundColor: "white", borderRadius: "15px" }} p='20px'>
             <Typography m="20" mb="20px" sx={{ color: "#00a1a1", fontWeight: "bold", fontSize: "20px" }}>Add Project</Typography>
             <Snackbar open={snackBar} autoHideDuration={3000} onClose={() => isSuccess(false)}>
                 <Alert severity="success" sx={{ width: '100%' }}>
@@ -73,7 +73,7 @@ const AddProject = () => {
                 onSubmit={handleFormSubmit}
                 initialValues={{ project }}
                 validationSchema={projectSchema}
-                >
+            >
                 {({
                     values,
                     errors,
@@ -87,6 +87,7 @@ const AddProject = () => {
                             display="grid"
                             gap="30px"
                             gridTemplateColumns="repeat(4,minmax(0,1fr))">
+
                             <TextField
                                 fullWidth
                                 variant="filled"
@@ -98,12 +99,12 @@ const AddProject = () => {
                                 name="title"
                                 sx={{
                                     gridColumn: "span 2", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     },
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.title && !! errors.title}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.title && !!errors.title}
                                 helper={touched.title && errors.title}
                             />
                             <TextField
@@ -117,12 +118,12 @@ const AddProject = () => {
                                 name="type"
                                 sx={{
                                     gridColumn: "span 2", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.type && !! errors.type}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.type && !!errors.type}
                                 helper={touched.type && errors.type}
                             />
                             <TextField
@@ -136,12 +137,12 @@ const AddProject = () => {
                                 name="description"
                                 sx={{
                                     gridColumn: "span 4", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.description && !! errors.description}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.description && !!errors.description}
                                 helper={touched.description && errors.description}
                             />
                             <TextField
@@ -155,12 +156,12 @@ const AddProject = () => {
                                 name="gitlink"
                                 sx={{
                                     gridColumn: "span 4", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.gitlink && !! errors.gitlink}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.gitlink && !!errors.gitlink}
                                 helper={touched.gitlink && errors.gitlink}
                             />
                             <TextField
@@ -174,12 +175,12 @@ const AddProject = () => {
                                 name="googleplaylink"
                                 sx={{
                                     gridColumn: "span 4", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.googleplaylink && !! errors.googleplaylink}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.googleplaylink && !!errors.googleplaylink}
                                 helper={touched.googleplaylink && errors.googleplaylink}
                             />
                             <TextField
@@ -197,12 +198,12 @@ const AddProject = () => {
                                 name="tags"
                                 sx={{
                                     gridColumn: "span 4", input: {
-                                        color: "white",
-                                        background: "#23243A"
+                                        color: "black",
+                                        background: "#eeeeee"
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'white' } }}
-                                error={!!touched.tags && !! errors.tags}
+                                InputLabelProps={{ style: { color: 'black' } }}
+                                error={!!touched.tags && !!errors.tags}
                                 helper={touched.tags && errors.tags}
                             />
                             <input
@@ -215,7 +216,7 @@ const AddProject = () => {
                                     setFieldValue('images', e.currentTarget.files)
                                     console.log(e.currentTarget.files)
                                 }}
-                                style={{ color: "white" }}
+                                style={{ color: "black" }}
 
                             />
                         </Box>
@@ -231,13 +232,13 @@ const AddProject = () => {
     )
 }
 const projectSchema = yup.object().shape({
-    title:yup.string().required('required'),
-    type:yup.string().required('required'),
-    description:yup.string().required('required'),
-    gitlink:yup.string().required('required'),
-    googleplaylink:yup.string().required('required'),
-    images:yup.string().required('required'),
-     tags:yup.array().required('required'),
+    title: yup.string().required('required'),
+    type: yup.string().required('required'),
+    description: yup.string().required('required'),
+    gitlink: yup.string().required('required'),
+    googleplaylink: yup.string().required('required'),
+    images: yup.string().required('required'),
+    tags: yup.array().required('required'),
 })
 
 export default AddProject
