@@ -18,6 +18,7 @@ function App() {
           <Route path="/addprofile" element={<AddProfile />} />
           <Route path="/card" element={<Card />} />
           <Route path="/addcertificate" element={<AddCertificate />} />
+
         </Routes>
       </main>
     </div>

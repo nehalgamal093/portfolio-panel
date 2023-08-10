@@ -1,6 +1,7 @@
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 
 const DialogComponent = ({ open, handleClose, handleDelete, id }) => {
+    console.log(`idididididid${id}`)
     return (
         <Dialog
             open={open}
