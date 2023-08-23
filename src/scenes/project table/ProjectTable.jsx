@@ -1,4 +1,4 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress,Snackbar,Alert } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import DialogComponent from "../../components/Dialog";
@@ -15,7 +15,7 @@ const ProjectTables = () => {
   const [projectData, setProjectData] = useState('');
   const [data, load, GetProject] = useGetProjects();
   const [deleteProject, deleted] = useDeleteProject();
-
+const [snackBar,isSuccess] = useState(false)
   const handleDelete = (id) => {
     deleteProject(id);
     GetProject();
@@ -27,12 +27,14 @@ const ProjectTables = () => {
 
   useEffect(() => {
     if (updated) {
+      isSuccess(true)
       GetProject();
     }
   }, [updated]);
 
   useEffect(() => {
     if (deleted) {
+      isSuccess(true)
       GetProject();
     }
 
@@ -145,6 +147,11 @@ const ProjectTables = () => {
             setUpdated={setUpdated}
             handleClose={handleCloseUpdate}
           />
+            <Snackbar open={snackBar} autoHideDuration={3000} onClose={() => isSuccess(false)}>
+                <Alert severity="success" sx={{ width: '100%' }}>
+                    Created Project Successfully !
+                </Alert>
+            </Snackbar>
         </Box>
       )}
     </Box>

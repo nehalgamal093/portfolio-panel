@@ -78,21 +78,9 @@ const Card = () => {
                         <Box mr="10px">  <SchoolIcon /> </Box> <Typography sx={{ color: 'grey' }}>{project.downloadcv}</Typography>
                     </Box>
 
-                    <Button
-                        //   onClick={() => handleClickOpen()}
-                        variant="contained"
-                        disableElevation
-                        sx={{
-                            backgroundColor: "#eb5c5e",
-                            padding: "5px",
-                            margin: "5px",
-                            fontSize: "12px",
-                        }}
-                    >
-                        <Typography sx={{ fontSize: "13px", fontWeight: "Bold", textTransform: 'capitalize' }}>Delete</Typography>
-                    </Button>
+           
 
-                    <UpdateDialog />
+                
                 </Box>
 
 
