@@ -9,6 +9,7 @@ import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import PersonIcon from '@mui/icons-material/Person';
 const Item = ({ title, to, icon, selected, setSelected }) => {
     return (
         <Link to={to} style={{ textDecoration: "none", color: "white" }}>
@@ -50,7 +51,7 @@ const SidebarMenu = () => {
                 collapsed={isCollapsed}
                 backgroundColor="#23243A"
                 style={{
-
+                    height:"100vh",
                     border: "none"
                 }}
                 transitionDuration={800}
@@ -161,21 +162,11 @@ const SidebarMenu = () => {
                         <Item
                             title="Card"
                             to="/card"
-                            icon={<LibraryAddOutlinedIcon />}
+                            icon={<PersonIcon />}
                             selected={selected}
                             setSelected={setSelected} />
-                        <Item
-                            title="Add Project"
-                            to="/"
-                            icon={<LibraryAddOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected} />
-                        <Item
-                            title="Add Project"
-                            to="/"
-                            icon={<LibraryAddOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected} />
+          
+                  
                     </Box>
                 </Menu>
             </Sidebar>

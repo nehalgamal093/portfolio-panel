@@ -6,10 +6,12 @@ import useDeleteProject from "../../hooks/DeleteProject";
 import useGetProjects from "../../hooks/GetProject";
 import UpdateDialog from "../../components/UpdateDialog";
 import { ActionButton } from "../../components/ActionButton";
+import { ImportantDevices } from "@mui/icons-material";
 
 const ProjectTables = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+ 
   const [updated, setUpdated] = useState(false);
   const [idchar, setId] = useState();
   const [projectData, setProjectData] = useState('');
@@ -54,19 +56,19 @@ const [snackBar,isSuccess] = useState(false)
     setOpenDelete(false);
   };
   const columns = [
-    { field: "_id", headerName: "ID", flex: 1 },
-    { field: "title", headerName: "Title", flex: 1 },
-    { field: "type", headerName: "Type", flex: 1 },
-    { field: "description", headerName: "Description", flex: 2 },
-    { field: "gitlink", headerName: "Git", flex: 1 },
-    { field: "googleplaylink", headerName: "GooglePlay", flex: 1 },
-    { field: "tags", headerName: "Tags", flex: 1 },
-    { field: "images", headerName: "Images", flex: 1 },
+    { field: "_id", headerName: "ID", width:100},
+    { field: "title", headerName: "Title", width:150},
+    { field: "type", headerName: "Type", width:100},
+    { field: "description", headerName: "Description", width:200 },
+    { field: "gitlink", headerName: "Git", width:100 },
+    { field: "googleplaylink", headerName: "GooglePlay", width:100},
+    { field: "tags", headerName: "Tags", width:100 },
+    { field: "images", headerName: "Images", width:100},
 
     {
       field: "actions",
       headerName: "Actions",
-      flex: 2,
+      width:200,
       renderCell: (params) => {
         return (
           <Box display="flex" alignItems="center">
@@ -121,17 +123,39 @@ const [snackBar,isSuccess] = useState(false)
             "& .MuiDataGrid-footerContainer": {
               boderTop: "none",
               backgroundColor: "#23243A",
+              color:"white"
+         
             },
+           ".css-levciy-MuiTablePagination-displayedRows ":{
+            color:"white"
+           },
+           ".css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input":{
+            color:"white"
+           },
+           ".css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel":{
+            color:"white"
+           },
+           ".css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon":{
+            color:"white"
+           },
+           ".css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled":{
+color:"white"
+           }
           }}
         >
-          <DataGrid
+         {
+          data.length? (
+            <DataGrid
             columns={columns}
             getRowId={(row) => row._id}
             rows={data}
             getRowClassName={(params) =>
               params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
             }
+           
           />
+          ):(<Box display='flex' justifyContent='center' backgroundColor='white' padding='20px'>No Data Found</Box>)
+         }
 
           <DialogComponent
             open={openDelete}

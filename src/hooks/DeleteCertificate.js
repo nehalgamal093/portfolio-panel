@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 
-const useDeleteProject = () => {
+const useDeleteCertificate = () => {
   const [deleted,setDeleted] = useState()
-  const deleteProject = async (id) => {
+  const deleteCertificate = async (id) => {
     try {
       const response = await axios.delete(
-        `https://ginger-nono-qwar.vercel.app/projects/${id}`
+        `https://ginger-nono-qwar.vercel.app/certificates/${id}`
       );
   
       setDeleted(true)
@@ -15,7 +15,7 @@ const useDeleteProject = () => {
       console.error(error);
     }
   };
-  return [deleteProject,deleted];
+  return [deleteCertificate,deleted];
 };
 
-export default useDeleteProject;
+export default useDeleteCertificate;

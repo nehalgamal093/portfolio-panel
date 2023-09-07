@@ -13,7 +13,7 @@ const Card = () => {
     const [load, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true)
-        axios.get("http://localhost:3001/profiles")
+        axios.get("https://ginger-nono-qwar.vercel.app/profiles")
             .then((response) => {
                 setProjects(response.data['result'][0])
                 setLoading(false)
@@ -25,7 +25,10 @@ const Card = () => {
     }, [])
     return (
         <Box>
-            <Box
+            {
+                project?
+                (
+                    <Box
                 p="50px"
                 m="50px"
                 sx={{
@@ -85,6 +88,8 @@ const Card = () => {
 
 
             </Box>
+                ):(<Box display='flex' justifyContent='center' backgroundColor='white' padding='20px'>No Data Found</Box>)
+            }
 
         </Box>
     );

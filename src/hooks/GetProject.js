@@ -8,7 +8,7 @@ const useGetProjects = () => {
     const getProject = () => {
         // useEffect(() => {
             setLoading(true)
-            axios.get("http://localhost:3001/projects")
+            axios.get("https://ginger-nono-qwar.vercel.app/projects")
                 .then((response) => {
                     setProjects(response.data['result'])
                     setLoading(false)

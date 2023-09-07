@@ -1,11 +1,11 @@
-import { Box, Button, TextField, Typography, Snackbar, Alert } from '@mui/material'
+import { Box, Button, TextField, Typography, Snackbar, Alert, CircularProgress } from '@mui/material'
 import { Formik } from 'formik';
 import axios from "axios";
 import { useState } from 'react';
 import * as yup from 'yup';
 const AddProject = () => {
     const [snackBar, isSuccess] = useState(false);
-
+    const [loading, setLoading] = useState(false);
     const project = {
         title: '',
         type: '',
@@ -34,7 +34,7 @@ const AddProject = () => {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:3001/projects',
+            url: 'https://ginger-nono-qwar.vercel.app/projects',
             data: bodyFormData,
             headers: {
                 "Content-Type": "multipart/form-data",
@@ -42,6 +42,7 @@ const AddProject = () => {
         }).then(function (res) {
             console.log(res)
             isSuccess(true)
+            setLoading(false);
             resetForm({
                 values: {
                     title: '',
@@ -105,7 +106,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.title && !!errors.title}
-                                helper={touched.title && errors.title}
+                                helperText={touched.title && errors.title}
                             />
                             <TextField
                                 fullWidth
@@ -124,7 +125,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.type && !!errors.type}
-                                helper={touched.type && errors.type}
+                                helperText={touched.type && errors.type}
                             />
                             <TextField
                                 fullWidth
@@ -143,7 +144,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.description && !!errors.description}
-                                helper={touched.description && errors.description}
+                                helperText={touched.description && errors.description}
                             />
                             <TextField
                                 fullWidth
@@ -162,7 +163,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.gitlink && !!errors.gitlink}
-                                helper={touched.gitlink && errors.gitlink}
+                                helperText={touched.gitlink && errors.gitlink}
                             />
                             <TextField
                                 fullWidth
@@ -181,7 +182,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.googleplaylink && !!errors.googleplaylink}
-                                helper={touched.googleplaylink && errors.googleplaylink}
+                                helperText={touched.googleplaylink && errors.googleplaylink}
                             />
                             <TextField
                                 fullWidth
@@ -204,7 +205,7 @@ const AddProject = () => {
                                 }}
                                 InputLabelProps={{ style: { color: 'black' } }}
                                 error={!!touched.tags && !!errors.tags}
-                                helper={touched.tags && errors.tags}
+                                helperText={touched.tags && errors.tags}
                             />
                             <input
                                 type='file'
@@ -221,8 +222,8 @@ const AddProject = () => {
                             />
                         </Box>
                         <Box display="flex" justifyContent="end" mt="20px">
-                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" >
-                                Add Project
+                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container"  onClick={()=>setLoading(true)}>
+                             {loading?(<CircularProgress sx={{color:'white'}}/>):(<Typography>Add Project</Typography>)}
                             </Button>
                         </Box>
                     </form>
@@ -232,11 +233,11 @@ const AddProject = () => {
     )
 }
 const projectSchema = yup.object().shape({
-    title: yup.string().required('required'),
+    title: yup.string(10).required('required'),
     type: yup.string().required('required'),
-    description: yup.string().required('required'),
-    gitlink: yup.string().required('required'),
-    googleplaylink: yup.string().required('required'),
+    description: yup.string(10).required('required'),
+    gitlink: yup.string(10).required('required'),
+    googleplaylink: yup.string(),
     images: yup.string().required('required'),
     tags: yup.array().required('required'),
 })

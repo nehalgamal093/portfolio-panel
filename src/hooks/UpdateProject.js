@@ -9,7 +9,7 @@ const useUpdateProject = () => {
     console.log(id,'kjsjsajkdflj')
     axios({
       method: "PUT",
-      url: `http://localhost:3001/projects/${id}`,
+      url: `https://ginger-nono-qwar.vercel.app/projects/${id}`,
       data: {
         title: data.title,
         type: data.type,

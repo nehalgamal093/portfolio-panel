@@ -8,7 +8,7 @@ const useGetCertificates = () => {
     const getProject = () => {
         // useEffect(() => {
             setLoading(true)
-            axios.get("http://localhost:3001/certificates")
+            axios.get("https://ginger-nono-qwar.vercel.app/certificates")
                 .then((response) => {
                     setCertificate(response.data['result'])
                     setLoading(false)

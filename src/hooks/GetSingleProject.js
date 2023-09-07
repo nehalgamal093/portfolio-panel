@@ -9,7 +9,7 @@ const useGetSingleProject = (id) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3001/projects/${id}`)
+      .get(`https://ginger-nono-qwar.vercel.app/projects/${id}`)
       .then((response) => {
         setSingleProject(response.data["result"]);
         setLoading(false);

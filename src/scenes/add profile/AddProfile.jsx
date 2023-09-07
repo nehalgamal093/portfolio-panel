@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, Snackbar, Alert, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material'
+import { Box, Button, TextField, Typography, Snackbar, Alert, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, CircularProgress } from '@mui/material'
 import { Formik } from 'formik';
 import axios from "axios";
 import { useState } from 'react';
@@ -11,15 +11,15 @@ import * as React from 'react';
 const AddProfile = () => {
     const [snackBar, isSuccess] = useState(false);
     const [profile, setProfile] = useState([])
-    const [load, setLoading] = useState(false);
-
+    const [loading, setLoading] = useState(false);
+  
 
     useEffect(() => {
-        setLoading(true)
-        axios.get("http://localhost:3001/profiles")
+
+        axios.get("https://ginger-nono-qwar.vercel.app/profiles")
             .then((response) => {
                 setProfile(response.data['result'][0])
-                setLoading(false)
+
                 console.log(response.data['result'])
             })
             .catch((err) => {
@@ -41,12 +41,13 @@ const AddProfile = () => {
 
         axios({
             method: 'PUT',
-            url: 'http://localhost:3001/profiles/64ce533244e6a86604fe94b2',
+            url: 'https://ginger-nono-qwar.vercel.app/profiles/64f398ab9faaa3753c8c1cd3',
             data: { title: data.title, position: data.position, summary: data.summary, gitlink: data.gitlink, googleplaylink: data.googleplaylink, email: data.email, downloadcv: data.downloadcv, linkedinlink: data.linkedinlink },
 
         }).then(function (res) {
             console.log(res)
             isSuccess(true)
+            setLoading(false)
             // resetForm({
             //     values: {
             //         title: '',
@@ -117,7 +118,9 @@ const AddProfile = () => {
                     Created profile Successfully !
                 </Alert>
             </Snackbar>
-            <Formik
+           {
+            profile? (
+                <Formik
                 onSubmit={handleFormSubmit}
                 enableReinitialize
                 initialValues={{
@@ -318,14 +321,16 @@ const AddProfile = () => {
                             /> */}
                         </Box>
                         <Box display="flex" justifyContent="end" mt="20px">
-                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" >
-                                Update Profile
+                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" onClick={()=>setLoading(true)} >
+                                {loading? (<CircularProgress sx={{color:'white'}}/>):(<Typography>Edit Profile</Typography>)}
                             </Button>
 
                         </Box>
                     </form>
                 )}
             </Formik>
+            ):(<div>No data found </div>)
+           }
         </Box>
     )
 }
