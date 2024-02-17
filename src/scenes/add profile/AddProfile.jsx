@@ -165,10 +165,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 2", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
-                                            },
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
+                                            }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.title }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.title }}
 
                                     // error={!!touched.title && !! errors.title}
                                     // helper={touched.title && errors.title}
@@ -185,11 +189,15 @@ const AddProfile = () => {
                                         name="position"
                                         sx={{
                                             gridColumn: "span 2", input: {
-                                                color: "black",
-                                                background: "#eeeeee"
+
+                                                background: "#FFFFFF",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
                                             }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.position }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee' }, shrink: values.position }}
                                     // error={!!touched.type && !! errors.type}
                                     // helper={touched.type && errors.type}
                                     />
@@ -205,10 +213,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 4", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
                                             }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.summary }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.summary }}
                                     // error={!!touched.description && !! errors.description}
                                     // helper={touched.description && errors.description}
                                     />
@@ -224,10 +236,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 4", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
                                             }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.gitlink }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.gitlink }}
                                     // error={!!touched.gitlink && !! errors.gitlink}
                                     // helper={touched.gitlink && errors.gitlink}
                                     />
@@ -243,10 +259,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 4", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
                                             }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.googleplaylink }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: 'black', fontFamily: "ABeeZee" }, shrink: values.googleplaylink }}
                                     // error={!!touched.googleplaylink && !! errors.googleplaylink}
                                     // helper={touched.googleplaylink && errors.googleplaylink}
                                     />
@@ -262,10 +282,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 2", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
-                                            },
+                                                fontFamily: "ABeeZee",
+                                                background: "#FFFFFF",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
+                                            }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.email }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.email }}
                                     // error={!!touched.title && !! errors.title}
                                     // helper={touched.title && errors.title}
                                     />
@@ -281,10 +305,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 2", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
-                                            },
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
+                                            }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.linkedinlink }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.linkedinlink }}
                                     // error={!!touched.title && !! errors.title}
                                     // helper={touched.title && errors.title}
                                     />
@@ -300,10 +328,14 @@ const AddProfile = () => {
                                         sx={{
                                             gridColumn: "span 2", input: {
                                                 color: "black",
-                                                background: "#eeeeee"
-                                            },
+                                                background: "#ffffff",
+                                                fontFamily: "ABeeZee",
+                                                border: "2px solid #EEEEEE",
+                                                borderRadius: "10px",
+                                            }
                                         }}
-                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.downloadcv }}
+                                        InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
+                                        InputLabelProps={{ style: { color: '#eeeeee', fontFamily: "ABeeZee" }, shrink: values.downloadcv }}
                                     // error={!!touched.title && !! errors.title}
                                     // helper={touched.title && errors.title}
                                     />

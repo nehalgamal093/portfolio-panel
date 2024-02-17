@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography,Divider } from "@mui/material";
+import { Box, IconButton, Typography, Divider } from "@mui/material";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
@@ -13,11 +13,12 @@ import PersonIcon from '@mui/icons-material/Person';
 const Item = ({ title, to, icon, selected, setSelected }) => {
     return (
         <Link to={to} style={{ textDecoration: "none", color: "white" }}>
-           
+
             <MenuItem
                 active={selected === title}
                 style={{
                     color: "white",
+                    fontFamily: "ABeeZee",
                     // background: selected === title ? "#335B8C" : "transparent",
                     borderRadius: selected === title ? "8px" : "0",
                     margin: "20px 4px",
@@ -30,15 +31,15 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
                 }
                 icon={icon}
             >
-          
 
-                <Box display="flex" justifyContent="space-between"> 
-                <Typography sx={{fontSize:'12px'}}>{title}</Typography>
-                <  ArrowForwardIosIcon/>
+
+                <Box display="flex" justifyContent="space-between">
+                    <Typography sx={{ fontSize: '15px', fontFamily: "ABeeZee", fontWeight: "bold" }}>{title}</Typography>
+                    <  ArrowForwardIosIcon />
                 </Box>
             </MenuItem>
         </Link>
-        
+
     )
 }
 const SidebarMenu = () => {
@@ -51,7 +52,7 @@ const SidebarMenu = () => {
                 collapsed={isCollapsed}
                 backgroundColor="#23243A"
                 style={{
-                    height:"100vh",
+                    height: "100vh",
                     border: "none"
                 }}
                 transitionDuration={800}
@@ -89,7 +90,7 @@ const SidebarMenu = () => {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography>Menu</Typography>
+                                <Typography style={{ fontFamily: "ABeeZee" }}>Menu</Typography>
                                 <IconButton
                                     onClick={() => setIsCollapsed(!isCollapsed)}
                                 >
@@ -98,15 +99,15 @@ const SidebarMenu = () => {
                             </Box>
                         )}
                     </MenuItem>
-                  {  isCollapsed && <Box display="flex" justifyContent="center">
-                                <img
-                                    alt="profile-user"
-                                    width="50px"
-                                    height="50px"
-                                    src={`../../assets/cat.png`}
+                    {isCollapsed && <Box display="flex" justifyContent="center">
+                        <img
+                            alt="profile-user"
+                            width="50px"
+                            height="50px"
+                            src={`../../assets/cat.png`}
 
-                                />
-                            </Box>}
+                        />
+                    </Box>}
                     {/**User */}
                     {!isCollapsed && (
                         <Box mb="40px" mt="50px">
@@ -118,21 +119,21 @@ const SidebarMenu = () => {
                                     src={`../../assets/cat.png`}
 
                                 />
-                                <Box ml="20px" mt="15px">
-                                <Typography sx={{ color: "#FFFFFF",fontSize:"15px"}}>
-                                    Nehal Gamal
-                                </Typography>
-                                <Typography sx={{ color: "#9a9a9a",fontSize:"12px"}}>
-                                    Front End Developer
-                                </Typography>
+                                <Box ml="15px" mt="15px">
+                                    <Typography sx={{ color: "#FFFFFF", fontSize: "20px", fontFamily: "ABeeZee" }}>
+                                        Nehal Gamal
+                                    </Typography>
+                                    <Typography sx={{ color: "#9a9a9a", fontSize: "12px", fontFamily: "ABeeZee" }}>
+                                        Front End Developer
+                                    </Typography>
                                 </Box>
                             </Box>
-                            <Divider/>
+                            <Divider />
                         </Box>
-                        
+
                     )}
                     {/**Menu Items */}
-                   
+
                     <Box paddingLeft={isCollapsed ? undefined : "10px"} mb={isCollapsed ? "150px" : "10px"}>
                         <Item
                             title="Project"
@@ -146,7 +147,7 @@ const SidebarMenu = () => {
                             icon={<BackupTableIcon />}
                             selected={selected}
                             setSelected={setSelected} />
-                            <Divider />
+                        <Divider />
                         <Item
                             title="Profile"
                             to="/addprofile"
@@ -165,8 +166,8 @@ const SidebarMenu = () => {
                             icon={<PersonIcon />}
                             selected={selected}
                             setSelected={setSelected} />
-          
-                  
+
+
                     </Box>
                 </Menu>
             </Sidebar>

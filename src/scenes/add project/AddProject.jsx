@@ -63,7 +63,7 @@ const AddProject = () => {
 
     return (
         <Box m="20px" sx={{ backgroundColor: "white", borderRadius: "15px" }} p='20px'>
-            <Typography m="20" mb="20px" sx={{ color: "#00a1a1", fontWeight: "bold", fontSize: "20px" }}>Add Project</Typography>
+            <Typography m="20" mb="20px" sx={{ color: "#00a1a1", fontWeight: "bold", fontSize: "20px", fontFamily: "ABeeZee" }}>Add Project</Typography>
             <Snackbar open={snackBar} autoHideDuration={3000} onClose={() => isSuccess(false)}>
                 <Alert severity="success" sx={{ width: '100%' }}>
                     Created Project Successfully !
@@ -97,13 +97,21 @@ const AddProject = () => {
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 name="title"
+
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 sx={{
+
                                     gridColumn: "span 2", input: {
+                                        fontFamily: "ABeeZee",
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
+
                                     },
+
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.title && !!errors.title}
                                 helperText={touched.title && errors.title}
                             />
@@ -115,14 +123,18 @@ const AddProject = () => {
                                 value={values.type}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 name="type"
                                 sx={{
+
                                     gridColumn: "span 2", input: {
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.type && !!errors.type}
                                 helperText={touched.type && errors.type}
                             />
@@ -135,13 +147,16 @@ const AddProject = () => {
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 name="description"
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 sx={{
                                     gridColumn: "span 4", input: {
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.description && !!errors.description}
                                 helperText={touched.description && errors.description}
                             />
@@ -154,13 +169,16 @@ const AddProject = () => {
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 name="gitlink"
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 sx={{
                                     gridColumn: "span 4", input: {
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.gitlink && !!errors.gitlink}
                                 helperText={touched.gitlink && errors.gitlink}
                             />
@@ -173,13 +191,16 @@ const AddProject = () => {
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 name="googleplaylink"
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 sx={{
                                     gridColumn: "span 4", input: {
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.googleplaylink && !!errors.googleplaylink}
                                 helperText={touched.googleplaylink && errors.googleplaylink}
                             />
@@ -188,6 +209,7 @@ const AddProject = () => {
                                 variant="filled"
                                 type="text"
                                 label="Tags"
+                                InputProps={{ disableUnderline: true, sx: { borderRadius: 10 } }}
                                 value={values.tags}
                                 onBlur={handleBlur}
                                 onChange={(e) => {
@@ -199,30 +221,47 @@ const AddProject = () => {
                                 sx={{
                                     gridColumn: "span 4", input: {
                                         color: "black",
-                                        background: "#eeeeee"
+                                        background: "#FFFFFF",
+                                        border: "2px solid #EEEEEE",
+                                        borderRadius: "10px",
                                     }
                                 }}
-                                InputLabelProps={{ style: { color: 'black' } }}
+                                InputLabelProps={{ style: { color: '#EEEEEE', fontFamily: "ABeeZee", } }}
                                 error={!!touched.tags && !!errors.tags}
                                 helperText={touched.tags && errors.tags}
                             />
-                            <input
-                                type='file'
-                                name='images'
-                                accept='image/*'
-                                multiple
-                                onChange=
-                                {(e) => {
-                                    setFieldValue('images', e.currentTarget.files)
-                                    console.log(e.currentTarget.files)
-                                }}
-                                style={{ color: "black" }}
+                            <label
+                                style={{
+                                    fontFamily: "ABeeZee",
+                                    width: "20vw",
+                                    border: "2px solid #EEEEEE",
+                                    padding: "10px",
+                                    textAlign: "center",
+                                    borderRadius: "10px",
+                                    color: "#FFFFFF",
+                                    background: "#90ca6b"
+                                }}>
+                                Choose a picture
+                                <input
+                                    type='file'
+                                    name='images'
+                                    accept='image/*'
+                                    multiple
+                                    onChange=
+                                    {(e) => {
+                                        setFieldValue('images', e.currentTarget.files)
+                                        console.log(e.currentTarget.files)
+                                    }}
+                                    style={{
+                                        display: "none"
+                                    }}
 
-                            />
+                                />
+                            </label>
                         </Box>
                         <Box display="flex" justifyContent="end" mt="20px">
-                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" onClick={() => setLoading(true)}>
-                                {loading ? (<CircularProgress sx={{ color: 'white' }} />) : (<Typography>Add Project</Typography>)}
+                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white", width: "30vw", height: "5vw" }} variant="container" onClick={() => setLoading(true)}>
+                                {loading ? (<CircularProgress sx={{ color: 'white', }} />) : (<Typography style={{ fontFamily: "ABeeZee" }}>Add Project</Typography>)}
                             </Button>
                         </Box>
                     </form>
@@ -232,13 +271,13 @@ const AddProject = () => {
     )
 }
 const projectSchema = yup.object().shape({
-    title: yup.string(10).required('required'),
-    type: yup.string().required('required'),
-    description: yup.string(10).required('required'),
-    gitlink: yup.string(10).required('required'),
+    title: yup.string(10).required('This Field is required'),
+    type: yup.string().required('This Field is required'),
+    description: yup.string(10).required('This Field is required'),
+    gitlink: yup.string(10).required('This Field is required'),
     googleplaylink: yup.string(),
-    images: yup.string().required('required'),
-    tags: yup.array().required('required'),
+    images: yup.string().required('This Field is required'),
+    tags: yup.array().required('This Field is required'),
 })
 
 export default AddProject

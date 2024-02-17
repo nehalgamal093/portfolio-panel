@@ -1,4 +1,4 @@
-import { Box, CircularProgress,Snackbar,Alert } from "@mui/material";
+import { Box, CircularProgress, Snackbar, Alert } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import DialogComponent from "../../components/Dialog";
@@ -11,13 +11,13 @@ import { ImportantDevices } from "@mui/icons-material";
 const ProjectTables = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
- 
+
   const [updated, setUpdated] = useState(false);
   const [idchar, setId] = useState();
   const [projectData, setProjectData] = useState('');
   const [data, load, GetProject] = useGetProjects();
   const [deleteProject, deleted] = useDeleteProject();
-const [snackBar,isSuccess] = useState(false)
+  const [snackBar, isSuccess] = useState(false)
   const handleDelete = (id) => {
     deleteProject(id);
     GetProject();
@@ -56,19 +56,19 @@ const [snackBar,isSuccess] = useState(false)
     setOpenDelete(false);
   };
   const columns = [
-    { field: "_id", headerName: "ID", width:100},
-    { field: "title", headerName: "Title", width:150},
-    { field: "type", headerName: "Type", width:100},
-    { field: "description", headerName: "Description", width:200 },
-    { field: "gitlink", headerName: "Git", width:100 },
-    { field: "googleplaylink", headerName: "GooglePlay", width:100},
-    { field: "tags", headerName: "Tags", width:100 },
-    { field: "images", headerName: "Images", width:100},
+    { field: "_id", headerName: "ID", width: 100 },
+    { field: "title", headerName: "Title", width: 150 },
+    { field: "type", headerName: "Type", width: 100 },
+    { field: "description", headerName: "Description", width: 200 },
+    { field: "gitlink", headerName: "Git", width: 100 },
+    { field: "googleplaylink", headerName: "GooglePlay", width: 100 },
+    { field: "tags", headerName: "Tags", width: 100 },
+    { field: "images", headerName: "Images", width: 100 },
 
     {
       field: "actions",
       headerName: "Actions",
-      width:200,
+      width: 200,
       renderCell: (params) => {
         return (
           <Box display="flex" alignItems="center">
@@ -99,6 +99,7 @@ const [snackBar,isSuccess] = useState(false)
             "& .{gridClasses.row}.even": {
               backgroundColor: "#e5f1ff",
             },
+
             "& .MuiDataGrid-root": {
               border: "none",
               backgroundColor: "#23243A",
@@ -108,54 +109,58 @@ const [snackBar,isSuccess] = useState(false)
             },
             "& .name-column--cell": {
               color: "#00a1a1",
+
             },
             "& .MuiDataGrid-columnHeaders": {
               fontStyle: "bold",
               borderBottom: "none",
               color: "white",
-              fontSize: "12px",
+              fontSize: "15px",
+              fontFamily: "ABeeZee"
             },
             "& .MuiDataGrid-virtualScroller": {
               backgroundColor: "#f1f8ff",
               color: "#000000",
               fontSize: "12px",
+              fontFamily: "ABeeZee",
+              fontWeight: "bold"
             },
             "& .MuiDataGrid-footerContainer": {
               boderTop: "none",
               backgroundColor: "#23243A",
-              color:"white"
-         
+              color: "white"
+
             },
-           ".css-levciy-MuiTablePagination-displayedRows ":{
-            color:"white"
-           },
-           ".css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input":{
-            color:"white"
-           },
-           ".css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel":{
-            color:"white"
-           },
-           ".css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon":{
-            color:"white"
-           },
-           ".css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled":{
-color:"white"
-           }
+            ".css-levciy-MuiTablePagination-displayedRows ": {
+              color: "white"
+            },
+            ".css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input": {
+              color: "white"
+            },
+            ".css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel": {
+              color: "white"
+            },
+            ".css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
+              color: "white"
+            },
+            ".css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled": {
+              color: "white"
+            }
           }}
         >
-         {
-          data.length? (
-            <DataGrid
-            columns={columns}
-            getRowId={(row) => row._id}
-            rows={data}
-            getRowClassName={(params) =>
-              params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
-            }
-           
-          />
-          ):(<Box display='flex' justifyContent='center' backgroundColor='white' padding='20px'>No Data Found</Box>)
-         }
+          {
+            data.length ? (
+              <DataGrid
+                columns={columns}
+                getRowId={(row) => row._id}
+                rows={data}
+                getRowClassName={(params) =>
+                  params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
+                }
+
+              />
+            ) : (<Box display='flex' justifyContent='center' backgroundColor='white' padding='20px'>No Data Found</Box>)
+          }
 
           <DialogComponent
             open={openDelete}
@@ -171,11 +176,11 @@ color:"white"
             setUpdated={setUpdated}
             handleClose={handleCloseUpdate}
           />
-            <Snackbar open={snackBar} autoHideDuration={3000} onClose={() => isSuccess(false)}>
-                <Alert severity="success" sx={{ width: '100%' }}>
-                    Created Project Successfully !
-                </Alert>
-            </Snackbar>
+          <Snackbar open={snackBar} autoHideDuration={3000} onClose={() => isSuccess(false)}>
+            <Alert severity="success" sx={{ width: '100%' }}>
+              Created Project Successfully !
+            </Alert>
+          </Snackbar>
         </Box>
       )}
     </Box>
