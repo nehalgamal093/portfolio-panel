@@ -12,7 +12,7 @@ const AddProfile = () => {
     const [snackBar, isSuccess] = useState(false);
     const [profile, setProfile] = useState([])
     const [loading, setLoading] = useState(false);
-  
+
 
     useEffect(() => {
 
@@ -42,6 +42,7 @@ const AddProfile = () => {
         axios({
             method: 'PUT',
             url: 'https://ginger-nono-qwar.vercel.app/profiles/64f398ab9faaa3753c8c1cd3',
+
             data: { title: data.title, position: data.position, summary: data.summary, gitlink: data.gitlink, googleplaylink: data.googleplaylink, email: data.email, downloadcv: data.downloadcv, linkedinlink: data.linkedinlink },
 
         }).then(function (res) {
@@ -118,195 +119,195 @@ const AddProfile = () => {
                     Created profile Successfully !
                 </Alert>
             </Snackbar>
-           {
-            profile? (
-                <Formik
-                onSubmit={handleFormSubmit}
-                enableReinitialize
-                initialValues={{
+            {
+                profile ? (
+                    <Formik
+                        onSubmit={handleFormSubmit}
+                        enableReinitialize
+                        initialValues={{
 
-                    title: profile.title,
-                    position: profile.position,
-                    summary: profile.summary,
-                    gitlink: profile.gitlink,
-                    googleplaylink: profile.googleplaylink,
-                    email: profile.email,
-                    linkedinlink: profile.linkedinlink,
-                    downloadcv: profile.downloadcv,
-                    image: profile.image
+                            title: profile.title,
+                            position: profile.position,
+                            summary: profile.summary,
+                            gitlink: profile.gitlink,
+                            googleplaylink: profile.googleplaylink,
+                            email: profile.email,
+                            linkedinlink: profile.linkedinlink,
+                            downloadcv: profile.downloadcv,
+                            image: profile.image
 
-                }}
-            // validationSchema={projectSchema}
-            >
-                {({
-                    values,
-                    errors,
-                    touched,
-                    handleBlur,
-                    handleChange,
-                    handleSubmit, setFieldValue, resetForm
-                }) => (
-                    <form onSubmit={handleSubmit}>
-                        <Box
-                            display="grid"
-                            gap="30px"
-                            gridTemplateColumns="repeat(4,minmax(0,1fr))">
+                        }}
+                    // validationSchema={projectSchema}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
+                            handleBlur,
+                            handleChange,
+                            handleSubmit, setFieldValue, resetForm
+                        }) => (
+                            <form onSubmit={handleSubmit}>
+                                <Box
+                                    display="grid"
+                                    gap="30px"
+                                    gridTemplateColumns="repeat(4,minmax(0,1fr))">
 
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                value={values.title}
-                                type="text"
-                                label="Title"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="title"
-                                sx={{
-                                    gridColumn: "span 2", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    },
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.title }}
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        value={values.title}
+                                        type="text"
+                                        label="Title"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="title"
+                                        sx={{
+                                            gridColumn: "span 2", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            },
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.title }}
 
-                            // error={!!touched.title && !! errors.title}
-                            // helper={touched.title && errors.title}
-                            />
+                                    // error={!!touched.title && !! errors.title}
+                                    // helper={touched.title && errors.title}
+                                    />
 
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                type="text"
-                                label="Position"
-                                value={values.position}
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="position"
-                                sx={{
-                                    gridColumn: "span 2", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    }
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.position }}
-                            // error={!!touched.type && !! errors.type}
-                            // helper={touched.type && errors.type}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                value={values.summary}
-                                type="text"
-                                label="Summary"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="summary"
-                                sx={{
-                                    gridColumn: "span 4", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    }
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.summary }}
-                            // error={!!touched.description && !! errors.description}
-                            // helper={touched.description && errors.description}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                type="text"
-                                value={values.gitlink}
-                                label="Github Link"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="gitlink"
-                                sx={{
-                                    gridColumn: "span 4", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    }
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.gitlink }}
-                            // error={!!touched.gitlink && !! errors.gitlink}
-                            // helper={touched.gitlink && errors.gitlink}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                type="text"
-                                value={values.googleplaylink}
-                                label="Google Play Link"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="googleplaylink"
-                                sx={{
-                                    gridColumn: "span 4", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    }
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.googleplaylink }}
-                            // error={!!touched.googleplaylink && !! errors.googleplaylink}
-                            // helper={touched.googleplaylink && errors.googleplaylink}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                value={values.email}
-                                type="text"
-                                label="Email"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="email"
-                                sx={{
-                                    gridColumn: "span 2", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    },
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.email }}
-                            // error={!!touched.title && !! errors.title}
-                            // helper={touched.title && errors.title}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                value={values.linkedinlink}
-                                type="text"
-                                label="Linked In"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="linkedinlink"
-                                sx={{
-                                    gridColumn: "span 2", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    },
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.linkedinlink }}
-                            // error={!!touched.title && !! errors.title}
-                            // helper={touched.title && errors.title}
-                            />
-                            <TextField
-                                fullWidth
-                                variant="filled"
-                                value={values.downloadcv}
-                                type="text"
-                                label="Download cv"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                name="downloadcv"
-                                sx={{
-                                    gridColumn: "span 2", input: {
-                                        color: "black",
-                                        background: "#eeeeee"
-                                    },
-                                }}
-                                InputLabelProps={{ style: { color: 'black' }, shrink: values.downloadcv }}
-                            // error={!!touched.title && !! errors.title}
-                            // helper={touched.title && errors.title}
-                            />
-                            {/* <input
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        type="text"
+                                        label="Position"
+                                        value={values.position}
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="position"
+                                        sx={{
+                                            gridColumn: "span 2", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            }
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.position }}
+                                    // error={!!touched.type && !! errors.type}
+                                    // helper={touched.type && errors.type}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        value={values.summary}
+                                        type="text"
+                                        label="Summary"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="summary"
+                                        sx={{
+                                            gridColumn: "span 4", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            }
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.summary }}
+                                    // error={!!touched.description && !! errors.description}
+                                    // helper={touched.description && errors.description}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        type="text"
+                                        value={values.gitlink}
+                                        label="Github Link"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="gitlink"
+                                        sx={{
+                                            gridColumn: "span 4", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            }
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.gitlink }}
+                                    // error={!!touched.gitlink && !! errors.gitlink}
+                                    // helper={touched.gitlink && errors.gitlink}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        type="text"
+                                        value={values.googleplaylink}
+                                        label="Google Play Link"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="googleplaylink"
+                                        sx={{
+                                            gridColumn: "span 4", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            }
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.googleplaylink }}
+                                    // error={!!touched.googleplaylink && !! errors.googleplaylink}
+                                    // helper={touched.googleplaylink && errors.googleplaylink}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        value={values.email}
+                                        type="text"
+                                        label="Email"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="email"
+                                        sx={{
+                                            gridColumn: "span 2", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            },
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.email }}
+                                    // error={!!touched.title && !! errors.title}
+                                    // helper={touched.title && errors.title}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        value={values.linkedinlink}
+                                        type="text"
+                                        label="Linked In"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="linkedinlink"
+                                        sx={{
+                                            gridColumn: "span 2", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            },
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.linkedinlink }}
+                                    // error={!!touched.title && !! errors.title}
+                                    // helper={touched.title && errors.title}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        variant="filled"
+                                        value={values.downloadcv}
+                                        type="text"
+                                        label="Download cv"
+                                        onBlur={handleBlur}
+                                        onChange={handleChange}
+                                        name="downloadcv"
+                                        sx={{
+                                            gridColumn: "span 2", input: {
+                                                color: "black",
+                                                background: "#eeeeee"
+                                            },
+                                        }}
+                                        InputLabelProps={{ style: { color: 'black' }, shrink: values.downloadcv }}
+                                    // error={!!touched.title && !! errors.title}
+                                    // helper={touched.title && errors.title}
+                                    />
+                                    {/* <input
                                 type='file'
                                 name='image'
                                 accept='image/*'
@@ -319,18 +320,18 @@ const AddProfile = () => {
                                 style={{ color: "black" }}
 
                             /> */}
-                        </Box>
-                        <Box display="flex" justifyContent="end" mt="20px">
-                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" onClick={()=>setLoading(true)} >
-                                {loading? (<CircularProgress sx={{color:'white'}}/>):(<Typography>Edit Profile</Typography>)}
-                            </Button>
+                                </Box>
+                                <Box display="flex" justifyContent="end" mt="20px">
+                                    <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" onClick={() => setLoading(true)} >
+                                        {loading ? (<CircularProgress sx={{ color: 'white' }} />) : (<Typography>Edit Profile</Typography>)}
+                                    </Button>
 
-                        </Box>
-                    </form>
-                )}
-            </Formik>
-            ):(<div>No data found </div>)
-           }
+                                </Box>
+                            </form>
+                        )}
+                    </Formik>
+                ) : (<div>No data found </div>)
+            }
         </Box>
     )
 }

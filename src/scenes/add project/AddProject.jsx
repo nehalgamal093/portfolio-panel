@@ -36,9 +36,8 @@ const AddProject = () => {
             method: 'POST',
             url: 'https://ginger-nono-qwar.vercel.app/projects',
             data: bodyFormData,
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
+
+
         }).then(function (res) {
             console.log(res)
             isSuccess(true)
@@ -222,8 +221,8 @@ const AddProject = () => {
                             />
                         </Box>
                         <Box display="flex" justifyContent="end" mt="20px">
-                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container"  onClick={()=>setLoading(true)}>
-                             {loading?(<CircularProgress sx={{color:'white'}}/>):(<Typography>Add Project</Typography>)}
+                            <Button type="submit" style={{ backgroundColor: "#00a1a1", color: "white" }} variant="container" onClick={() => setLoading(true)}>
+                                {loading ? (<CircularProgress sx={{ color: 'white' }} />) : (<Typography>Add Project</Typography>)}
                             </Button>
                         </Box>
                     </form>
